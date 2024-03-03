@@ -7,7 +7,7 @@
 
 import React from 'react';
 
-import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
+import {SafeAreaView, useColorScheme} from 'react-native';
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 
 function App(): React.JSX.Element {
@@ -19,10 +19,6 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
       <Header />
     </SafeAreaView>
   );
