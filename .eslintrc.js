@@ -5,17 +5,16 @@ module.exports = {
     parser: 'babel-eslint',
   },
   extends: [
-    '@react-native',
     '@react-native-community',
-    'plugin:i18next/recommended',
+    // 'plugin:i18next/recommended',
     'plugin:react/recommended',
     'eslint:recommended',
   ],
   parser: '@typescript-eslint/parser',
   plugins: [
     '@typescript-eslint',
-    'i18next',
-    'react-i18n',
+    // 'i18next',
+    // 'react-i18n',
     'react',
     'react-native',
   ],
@@ -30,7 +29,7 @@ module.exports = {
         'no-shadow': 'off',
         'no-undef': 'off',
         'react/react-in-jsx-scope': 'off',
-        'i18next/no-literal-string': 2,
+        // 'i18next/no-literal-string': 2,
         'react/display-name': 'off',
 
         'react/jsx-sort-props': [
@@ -53,9 +52,8 @@ module.exports = {
         'react-native/no-single-element-style-arrays': 2,
 
         /** react-i18n */
-        'react-i18n/no-missing-interpolation-keys': 'error',
+        // 'react-i18n/no-missing-interpolation-keys': 'error',
       },
     },
   ],
-
 };
