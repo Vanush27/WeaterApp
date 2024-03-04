@@ -1,3 +1,62 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "react-native",
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "target": "ESNext",
+    "useUnknownInCatchVariables": true,
+    "noImplicitAny": false,
+    "noImplicitOverride": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    /* Completeness */
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "@assets": [
+        "src/assets"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@i18n/*": [
+        "src/i18n/*"
+      ],
+      "@navigators/*": [
+        "src/navigators/*"
+      ],
+      "@redux/*": [
+        "src/reduxs/*"
+      ],
+      "@theme/*": [
+        "src/theme/*"
+      ],
+      "@constants": ["./src/constants"],
+      "@env": ["node_modules/react-native-dotenv"], // this mapping is relative to "baseUrl"
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ],
+  "include": [
+    "src/**/*",
+    "declarations/*.d.ts",
+    "app.config.js",
+    "configs/jest/jest-setup.config.js",
+    "polifills"
+  ]
 }

@@ -1,3 +1,4 @@
+import {ThemeProvider} from '@rneui/themed';
 import React, {ReactNode} from 'react';
 
 import {SafeAreaProvider} from 'react-native-safe-area-context';
@@ -5,7 +6,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 export const AppContextsProvider = ({children}: IAppContextsProviderProps) => {
   return (
     <SafeAreaProvider>
-      <>{children}</>
+      <ThemeProvider>{children}</ThemeProvider>
     </SafeAreaProvider>
   );
 };
