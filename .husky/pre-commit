@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+branch_name=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BOLD='\033[1m'
+NC='\033[0m' # No Color
+
+if [[ $branch_name =~ ^WTH- ]]; then
+  echo "${GREEN}${BOLD}Good branch name.${NC}"
+else
+  echo "${RED}${BOLD}Use '' prefix for branch name. Example: 'WTH-feature-name'${NC}"
+  exit 1
+fi
