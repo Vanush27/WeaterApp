@@ -23,26 +23,30 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["src/*"],
+      "*": ["./src"],
       "@assets": [
-        "src/assets"
+        "./src/assets"
       ],
       "@components/*": [
-        "src/components/*"
+        "./src/components/*"
+      ],
+      "@components": [
+        "./src/components"
       ],
       "@i18n/*": [
-        "src/i18n/*"
+        "./src/i18n/*"
       ],
       "@navigators/*": [
-        "src/navigators/*"
+        "./src/navigators/*"
       ],
       "@redux/*": [
-        "src/reduxs/*"
+        "./src/reduxs/*"
       ],
       "@theme/*": [
-        "src/theme/*"
+        "./src/theme/*"
       ],
       "@constants": ["./src/constants"],
+      "@hooks": ["./src/hooks"],
       "@env": ["node_modules/react-native-dotenv"], // this mapping is relative to "baseUrl"
     }
   },
