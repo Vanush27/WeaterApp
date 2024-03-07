@@ -32,7 +32,9 @@ module.exports = {
         ],
         alias: {
           '@assets': './src/assets',
+          '@hooks': './src/hooks',
           '@components': './src/components',
+          '@components/*': './src/components/*',
           '@navigators': './src/navigators',
           '@i18n': './src/i18n',
           '@constants': './src/constants',
