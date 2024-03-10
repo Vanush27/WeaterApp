@@ -1,8 +1,10 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Settings} from '../../components';
+import {Country, Home, Settings} from '@screens';
 
 // import {SettingsScreen, WeatherScreen} from 'components';
 import SettingsIcon from 'react-native-vector-icons/AntDesign';
+// import AddIcon from 'react-native-vector-icons/AntDesign';
+import AddIcon from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 const BottomTab = createBottomTabNavigator();
 
@@ -10,6 +12,9 @@ const settingIcon = (focused: boolean) => {
   return (
     <SettingsIcon color={focused ? 'blue' : 'black'} name="setting" size={24} />
   );
+};
+const addCountryIcon = (focused: boolean) => {
+  return <AddIcon color={focused ? 'blue' : 'black'} name="city" size={24} />;
 };
 
 const weatherIcon = (focused: boolean) => {
@@ -31,11 +36,21 @@ const BottomNavigator = () => {
         options={() => ({
           tabBarIcon: ({focused}) => weatherIcon(focused),
           title: 'Home',
-          headerShown: true,
+          headerShown: false,
           tabBarActiveTintColor: 'blue',
         })}
       />
 
+      <BottomTab.Screen
+        component={Country}
+        name="Country"
+        options={() => ({
+          tabBarIcon: ({focused}) => addCountryIcon(focused),
+          title: 'Country',
+          headerShown: false,
+          tabBarActiveTintColor: 'blue',
+        })}
+      />
       <BottomTab.Screen
         component={Settings}
         name="Settings"

@@ -14,7 +14,7 @@ export const METRIC = 'metric';
 export const IMPERIAL = 'imperial';
 
 // number
-export const THOUSAND: number = 1000;
+export const THOUSAND = 1000;
 
 export const H_MAX_HEIGHT = DIMENSIONS_HEIGHT / 1.5;
 export const H_MIN_HEIGHT = 250;

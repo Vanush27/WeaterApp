@@ -9,7 +9,7 @@
       "DOM",
       "ESNext"
     ],
-    "moduleResolution": "node",
+    // "moduleResolution": "node",
     "noEmit": true,
     "resolveJsonModule": true,
     "target": "ESNext",
@@ -24,14 +24,16 @@
     "baseUrl": ".",
     "paths": {
       "*": ["./src"],
-      "@assets": [
-        "./src/assets"
+      "@api": ["./src/api"],
+      "@assets": ["./src/assets"],
+      "@assets/*": ["./src/assets/*"],
+      "@screens": ["./src/screens"],
+      "@screens/*": ["./src/screens/*"],
+      "@components": [
+        "./src/components"
       ],
       "@components/*": [
         "./src/components/*"
-      ],
-      "@components": [
-        "./src/components"
       ],
       "@i18n/*": [
         "./src/i18n/*"
@@ -40,13 +42,16 @@
         "./src/navigators/*"
       ],
       "@redux/*": [
-        "./src/reduxs/*"
+        "./src/redux/*"
       ],
       "@theme/*": [
         "./src/theme/*"
       ],
       "@constants": ["./src/constants"],
       "@hooks": ["./src/hooks"],
+      "@types/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@ui-modules": ["./src/ui-modules"],
       "@env": ["node_modules/react-native-dotenv"], // this mapping is relative to "baseUrl"
     }
   },
