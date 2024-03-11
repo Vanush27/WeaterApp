@@ -26,7 +26,7 @@ module.exports = {
         'no-unused-vars': ['warn'],
         '@typescript-eslint/no-unused-vars': 'warn',
         '@typescript-eslint/no-shadow': ['error'],
-        // '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
         'react-hooks/exhaustive-deps': 'warn',
         'no-shadow': 'off',
         'no-undef': 'off',
