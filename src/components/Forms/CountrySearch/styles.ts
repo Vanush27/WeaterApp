@@ -7,9 +7,9 @@ export function useStyles() {
   const styles = StyleSheet.create({
     container_input: {
       width: '100%',
-      marginTop: 90,
-      alignItems: 'center',
-      justifyContent: 'center',
+      // marginTop: 90,
+      // alignItems: 'center',
+      // justifyContent: 'center',
       borderRadius: 12,
       borderWidth: 2,
       borderBottomWidth: 2,

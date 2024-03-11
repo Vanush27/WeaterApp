@@ -19,6 +19,9 @@ export interface IThemeColors {
   moss: string;
   lavender: string;
   lightRed: string;
+
+  detail_weather: string;
+  detail_border: string;
 }
 
 export const colors: IThemeColors = {
@@ -42,4 +45,7 @@ export const colors: IThemeColors = {
   moss: '#62B195',
   lavender: '#7D90D1',
   lightRed: '#FFF2F2',
+
+  detail_weather: '#40666A',
+  detail_border: '#C9E8E0',
 };

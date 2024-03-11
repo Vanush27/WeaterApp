@@ -1,5 +1,5 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Country, Home, Settings} from '@screens';
+import {City, Home, Settings} from '@screens';
 
 // import {SettingsScreen, WeatherScreen} from 'components';
 import SettingsIcon from 'react-native-vector-icons/AntDesign';
@@ -21,7 +21,7 @@ const weatherIcon = (focused: boolean) => {
   return (
     <MaterialCommunityIcons
       color={focused ? 'blue' : 'black'}
-      name="weather-sunset"
+      name="weather-hazy"
       size={24}
     />
   );
@@ -42,11 +42,11 @@ const BottomNavigator = () => {
       />
 
       <BottomTab.Screen
-        component={Country}
-        name="Country"
+        component={City}
+        name="City"
         options={() => ({
           tabBarIcon: ({focused}) => addCountryIcon(focused),
-          title: 'Country',
+          title: 'City',
           headerShown: false,
           tabBarActiveTintColor: 'blue',
         })}

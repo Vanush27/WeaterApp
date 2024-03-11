@@ -1,35 +1,43 @@
 import * as React from 'react';
-import {Dimensions, View} from 'react-native';
-import Carousel from 'react-native-reanimated-carousel';
-import {BackgroundImageCard} from '@components';
+import {View} from 'react-native';
+import {BackgroundImage} from '@components';
+import SwiperFlatList from 'react-native-swiper-flatlist';
+import {useWeather} from '@hooks';
 
 import {useStyles} from './styles';
 
 const HorizontalCarousel = () => {
-  const width = Dimensions.get('window').width;
-  const height = Dimensions.get('window').height;
-
   const {styles} = useStyles();
+  const {countryListWeather} = useWeather();
 
-  const renderItem = (index: number) => {
+  const renderItem = () => {
     return (
       <View style={styles.render_wrapper}>
-        <BackgroundImageCard />
-        {/* <Text style={styles.render_index}>{index}</Text> */}
+        <BackgroundImage />
       </View>
     );
   };
   return (
-    <View style={styles.container}>
-      <Carousel
-        loop
-        width={width}
-        height={height}
-        // autoPlay={true}
-        data={[...new Array(6).keys()]}
-        scrollAnimationDuration={1200}
-        onSnapToItem={index => console.log('current index:', index)}
-        renderItem={({index}) => renderItem(index)}
+    <View style={{flex: 1}}>
+      <SwiperFlatList
+        autoplayDelay={2}
+        // autoplayLoop
+        // index={2}
+        data={[...new Array(countryListWeather.length).keys()]}
+        paginationActiveColor={'green'}
+        renderItem={() => renderItem()}
+        showPagination
+        paginationStyle={{
+          position: 'absolute',
+          // padding: 30,
+          top: 30,
+          left: 10,
+        }}
+        // renderItem={({item}) => (
+        //   <View style={[styles.child, {backgroundColor: item}]}>
+        //     <Text style={styles.text}>{item}</Text>
+        //   </View>
+        // )}
       />
     </View>
   );

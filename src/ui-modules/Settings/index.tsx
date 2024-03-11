@@ -54,7 +54,6 @@ const SettingItem = ({
   //   setVisible(false);
   // };
 
-  console.warn(temperature, 'temperature');
   return (
     <TouchableOpacity style={styles.container_message} onPress={showModal}>
       <Text h4>{name}</Text>
@@ -62,9 +61,9 @@ const SettingItem = ({
       {/* <Text h2>{temperature}</Text> */}
 
       <Modal
-        name={name}
         celsiusTemp={celsiusTemp}
         fahrenheitTemp={fahrenheitTemp}
+        name={name}
       />
       {/* <Text h4>{measure}</Text> */}
       <View>
