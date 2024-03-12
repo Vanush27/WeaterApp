@@ -33,7 +33,7 @@ module.exports = {
         alias: {
           '@api': './src/api',
           '@assets': './src/assets',
-          '@types': './src/types',
+          '@types/*': './src/types/*',
           '@assets/*': './src/assets/*',
           '@screens': './src/screens',
           '@redux': './src/redux',

@@ -9,6 +9,7 @@ import {Input} from '@components';
 
 import {TCountryFormShape} from './types';
 import {useStyles} from './styles';
+import {View} from 'react-native';
 
 const CountrySearchForm = () => {
   const {formMethods} = useForm<keyof TCountryFormShape, TCountryFormShape>({
@@ -41,19 +42,23 @@ const CountrySearchForm = () => {
   }, [debouncedValue]);
 
   return (
-    <FormWrapper {...{formMethods}}>
-      <Input
-        inputContainerStyle={styles.container_input}
-        {...searchFormFields.city}
-        icon={
-          cityName === '' ? <Search1Icon name="search1" size={18} /> : undefined
-        }
-        label="city"
-        name="Enter Country Name"
-        onChangeText={country => dispatchSetCityName(country)}
-      />
-      <CountryList data={cityFilter} loading={loading} />
-    </FormWrapper>
+    <>
+      <FormWrapper {...{formMethods}}>
+        <Input
+          inputContainerStyle={styles.container_input}
+          {...searchFormFields.city}
+          label="city label"
+          name="Enter City Name"
+          icon={
+            cityName === '' ? (
+              <Search1Icon name="search1" size={18} />
+            ) : undefined
+          }
+          onChangeText={country => dispatchSetCityName(country)}
+        />
+        <CountryList data={cityFilter} loading={loading} />
+      </FormWrapper>
+    </>
   );
 };
 export default CountrySearchForm;

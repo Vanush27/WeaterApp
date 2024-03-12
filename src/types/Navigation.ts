@@ -36,7 +36,7 @@ export type MainNavigationRoutes = {
 
 export type BottomNavigationRoutes = {
   Home: undefined;
-  Country: undefined;
+  City: undefined;
   Settings: undefined;
 };
 
