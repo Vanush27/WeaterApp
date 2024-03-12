@@ -10,34 +10,34 @@ const HorizontalCarousel = () => {
   const {styles} = useStyles();
   const {countryListWeather} = useWeather();
 
-  const renderItem = () => {
+  const renderItem = ({item}) => {
     return (
       <View style={styles.render_wrapper}>
-        <BackgroundImage />
+        {countryListWeather?.map((index: string) => (
+          <BackgroundImage
+            countryListWeather={countryListWeather}
+            key={index}
+            obj={item}
+          />
+        ))}
       </View>
     );
   };
+
   return (
     <View style={{flex: 1}}>
       <SwiperFlatList
-        autoplayDelay={2}
-        // autoplayLoop
-        // index={2}
-        data={[...new Array(countryListWeather.length).keys()]}
         paginationActiveColor={'green'}
-        renderItem={() => renderItem()}
+        renderItem={renderItem}
         showPagination
+        autoplayDelay={2}
+        // index={2}
+        data={countryListWeather}
         paginationStyle={{
           position: 'absolute',
-          // padding: 30,
           top: 30,
           left: 10,
         }}
-        // renderItem={({item}) => (
-        //   <View style={[styles.child, {backgroundColor: item}]}>
-        //     <Text style={styles.text}>{item}</Text>
-        //   </View>
-        // )}
       />
     </View>
   );

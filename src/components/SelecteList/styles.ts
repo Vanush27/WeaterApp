@@ -5,13 +5,16 @@ export function useStyles() {
   const {theme} = useTheme();
 
   const styles = StyleSheet.create({
-    container: {
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
+    container_country: {
+      backgroundColor: '#f4f4f6',
+      borderRadius: 15,
+      padding: 10,
+      margin: 15,
+      height: 90,
     },
+
     select_item: {
       padding: 20,
-      // backgroundColor: item.selected ? 'yellow' : 'white',
       borderBottomWidth: 1,
       borderBottomColor: '#ccc',
       flexDirection: 'row',

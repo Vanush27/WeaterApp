@@ -14,14 +14,14 @@ export function useStyles() {
     country_list: {
       flex: 0.8,
     },
-    container_country: {
-      backgroundColor: '#f4f4f6',
-      borderRadius: 15,
-      padding: 10,
-      margin: 15,
-    },
+
     plus_btn_wrapper: {
+      marginTop: 30,
       flex: 0.2,
+    },
+    all_select: {
+      justifyContent: 'flex-end',
+      alignItems: 'flex-end',
     },
   });
 

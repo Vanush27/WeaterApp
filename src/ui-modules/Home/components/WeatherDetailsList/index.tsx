@@ -12,7 +12,7 @@ import {useStyles} from './styles';
 import WeatherDetails from '../WeatherDetails';
 import WeatherInfo from '../WeatherInfo';
 
-const WeatherDetailsList = () => {
+const WeatherDetailsList = ({item}: any) => {
   const {styles} = useStyles();
   const {t} = useTranslation();
 
@@ -36,23 +36,23 @@ const WeatherDetailsList = () => {
     <>
       <Text style={styles.weather_detail_txt}>{t('Weather Detail')}</Text>
 
-      <View style={styles.detail_container}>
+      {/* <View style={styles.detail_container}>
         <WeatherDetails
-          description={weatherDetails?.main.humidity}
+          description={item?.main?.humidity}
           icon={ImagesAssets.wind}
           name={'wind'}
           siUnit={'%'}
         />
 
         <WeatherDetails
-          description={weatherDetails?.wind.speed}
+          description={item?.wind?.speed}
           icon={ImagesAssets.rain}
           name={'rainfall'}
           siUnit={'sm'}
         />
-      </View>
+      </View> */}
 
-      <View style={styles.detail_container}>
+      {/* <View style={styles.detail_container}>
         <WeatherDetails
           description={sunriseTime}
           icon={ImagesAssets.sunrise}
@@ -70,7 +70,7 @@ const WeatherDetailsList = () => {
           icon={ImagesAssets.humidity}
           name={'humidity'}
         />
-      </View>
+      </View> */}
 
       <View style={styles.detail_container}>
         <WeatherDetails
@@ -80,13 +80,13 @@ const WeatherDetailsList = () => {
           siUnit={'m'}
         />
         <WeatherDetails
-          description={weatherDetails?.main.pressure}
+          description={item?.main?.pressure}
           icon={ImagesAssets.pressure}
           name={'pressure'}
         />
       </View>
 
-      <Text style={styles.weather_detail_txt}> {t('Daily')}</Text>
+      {/* <Text style={styles.weather_detail_txt}> {t('Daily')}</Text> */}
       <WeatherInfo />
     </>
   );

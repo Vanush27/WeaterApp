@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useEffect, useRef, useState} from 'react';
-import {ImageBackground, View, Text, FlatList} from 'react-native';
+import {ImageBackground, View, FlatList} from 'react-native';
 import {useStyles} from './styles';
 import {ImagesAssets} from '@assets/images/ImagesAssets';
 
@@ -9,38 +9,45 @@ import {WeatherDetailsList} from '@ui-modules';
 import {useAppTranslation, useWeather} from '@hooks';
 // import {useWeather} from '@hooks';
 // import {kelvinToCelsius} from '@utils/unitConversion';
-// import {WeatherHeader} from 'components';
+import {Text} from '@components';
 // import {ImagesAssets} from 'assets/images/ImagesAssets';
 // import {IImageCountry} from 'types/ImageCountry';
 
-const BackgroundImage = () => {
+interface IBackgroundImageProps {
+  index?: string;
+  obj: any;
+  countryListWeather: any;
+}
+const BackgroundImage = ({
+  index,
+  obj,
+  countryListWeather,
+}: IBackgroundImageProps) => {
   const {styles} = useStyles();
   const {t} = useAppTranslation();
-  const {weatherDetails, currentWeather, countryListWeather} = useWeather();
-
-  const list = [
-    {key: 'image1', imgLink: 'imagelink1'},
-    {key: 'image2', imgLink: 'imagelink2'},
-  ];
 
   return (
-    <View style={styles.container_image_card}>
+    <View key={index} style={styles.container_image_card}>
       <ImageBackground
         resizeMode="cover"
         source={ImagesAssets.Yerevan_winter}
         style={styles.image}>
         <View style={styles.container}>
           <View style={styles.wrapper_top}>
-            <Text style={styles.header}>{t('Yerevan')}</Text>
-            <Text style={styles.header}>@</Text>
+            <Text h4>{obj?.city?.name}</Text>
+            <Text style={styles.header} h3>
+              @
+            </Text>
           </View>
 
           <View style={styles.wrapper_bootom}>
             <FlatList
-              data={list}
-              renderItem={() => (
+              data={countryListWeather}
+              renderItem={({item}) => (
                 <View style={styles.image_card}>
-                  <WeatherDetailsList />
+                  {/* <Text> {item?.city?.country}</Text> */}
+
+                  {/* <WeatherDetailsList item={item?.list} /> */}
                 </View>
               )}
             />

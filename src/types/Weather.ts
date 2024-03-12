@@ -41,4 +41,5 @@ export interface ICountryListWeather {
   cod: string;
   message: number;
   list: IListWeather[];
+  selected?: boolean;
 }
