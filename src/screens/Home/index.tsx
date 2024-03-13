@@ -5,6 +5,7 @@ import {useAppSelector} from '@hooks';
 
 const Home = () => {
   const {styles} = useStyles();
+
   const {countryListWeather} = useAppSelector(state => state.weather);
 
   return (

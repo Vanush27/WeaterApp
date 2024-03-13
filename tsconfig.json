@@ -52,6 +52,7 @@
       "@types/*": ["./src/types/*"],
       "@utils/*": ["./src/utils/*"],
       "@ui-modules": ["./src/ui-modules"],
+      "@firebase/*": ["./src/firebase/*"],
       "@env": ["node_modules/react-native-dotenv"], // this mapping is relative to "baseUrl"
     }
   },
