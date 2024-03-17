@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "177931135658",
+    "project_id": "wheather-ce171",
+    "storage_bucket": "wheather-ce171.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177931135658:android:e14b9eff3fdbfa09a93ed3",
+        "android_client_info": {
+          "package_name": "com.weatherapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr7jXhnWdWg8z78tqfGKzV57RO802W4OA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -35,6 +35,7 @@ module.exports = {
           '@assets': './src/assets',
           '@types/*': './src/types/*',
           '@assets/*': './src/assets/*',
+          '@firebase/*': './src/firebase/*',
           '@screens': './src/screens',
           '@redux': './src/redux',
           '@hooks': './src/hooks',

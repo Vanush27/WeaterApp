@@ -68,33 +68,32 @@ const City = () => {
         <View style={styles.all_select}>
           <CheckBox
             checked={allSelected}
+            checkedColor="green"
             checkedIcon="dot-circle-o"
             uncheckedIcon="circle-o"
-            onPress={handleToggleSelectAll}
             wrapperStyle={
               {
                 // backgroundColor: 'transparent',
                 // borderColor: 'transparent',
               }
             }
-            checkedColor="green"
+            onPress={handleToggleSelectAll}
           />
         </View>
         <ScrollView>
           {/* TODO list country */}
           {!!countryListWeather?.length &&
             countryListWeather?.map((obj: any, index: string) => (
-              <>
+              <View key={index}>
                 <SelecteList
                   data={obj}
                   handleSelectItem={handleSelectItem}
                   index={index}
-                  key={index}
                 />
                 {obj?.city?.selected && (
                   <DeleteIcon color={'red'} name="delete" size={24} />
                 )}
-              </>
+              </View>
             ))}
         </ScrollView>
       </View>
