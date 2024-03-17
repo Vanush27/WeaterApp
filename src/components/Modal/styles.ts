@@ -6,7 +6,6 @@ export function useStyles() {
 
   const styles = StyleSheet.create({
     button: {
-      // backgroundColor: 'white',
       margin: 10,
     },
     textPrimary: {

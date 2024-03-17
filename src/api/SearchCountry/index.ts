@@ -8,7 +8,7 @@ export const listCountry = axios.create({
   },
 });
 
-export const getCitiesList = async nameCity => {
+export const getCitiesList = async (nameCity: string) => {
   return await listCountry
     .get(`https://api.api-ninjas.com/v1/city?name=${nameCity}`)
     .then(function (response) {

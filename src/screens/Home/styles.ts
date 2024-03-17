@@ -1,5 +1,5 @@
 import {useTheme} from '@rneui/themed';
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export function useStyles() {
   const {theme} = useTheme();
@@ -8,8 +8,6 @@ export function useStyles() {
     container: {
       flex: 1,
       justifyContent: 'center',
-      // padding: 15,
-      backgroundColor: '#d9dde5',
     },
   });
 

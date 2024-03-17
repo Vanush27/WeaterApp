@@ -31,6 +31,7 @@ const CountryList = ({data, loading}: ICountryListProps) => {
     try {
       const getSearchCountry = await getWeatherViaLocation({
         city_name: city,
+        lang: 'en',
       });
 
       await createNewCountry(getSearchCountry);

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
-import {useNavigation} from '@react-navigation/native';
 import {TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 import {Chevron} from '@assets/icons';
 
@@ -8,21 +8,14 @@ import {useStyles} from './styles';
 
 type TBackButtonProps = {
   automaticStyles?: boolean;
-  onBackPress?: () => void;
 };
 
-const BackButton: FC<TBackButtonProps> = ({
-  automaticStyles = true,
-  onBackPress,
-}) => {
-  const navigation = useNavigation();
+const BackButton: FC<TBackButtonProps> = ({automaticStyles = true}) => {
+  const {goBack} = useNavigation();
   const {styles} = useStyles();
 
   const navigateBack = () => {
-    navigation.goBack();
-    // if (onBackPress) {
-    //   onBackPress();
-    // }
+    goBack();
   };
 
   const wrapper = automaticStyles

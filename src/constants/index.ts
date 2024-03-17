@@ -19,3 +19,7 @@ export const THOUSAND = 1000;
 export const H_MAX_HEIGHT = DIMENSIONS_HEIGHT / 1.1;
 export const H_MIN_HEIGHT = 250;
 export const H_SCROLL_DISTANCE = H_MAX_HEIGHT - H_MIN_HEIGHT;
+
+// temp
+export const FAHRENHEIT_TEMP = '\u00b0F';
+export const CELSIUS_TEMP = '\u00b0C';
