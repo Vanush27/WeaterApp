@@ -1,9 +1,8 @@
 import {useAppDispatch, useAppSelector} from '@hooks';
 
 import moment from 'moment/moment';
-// TODO
+
 import {ICountryListWeather} from '../types/Weather';
-import {THOUSAND} from '@constants';
 
 import {addCountry, setCurrentCountryItem} from '@redux/slices/weatherSlice';
 
@@ -23,16 +22,16 @@ export const useWeather = () => {
 
   const currentDay = moment().format('DD');
 
-  const date = new Date();
-  const seconds = date.getTime() / THOUSAND;
-  const getWeatherDetails = (currentDetailWeather, currentDayFoSec) => {
-    return currentDetailWeather?.list?.reduce(function (prev, curr) {
-      return Math.abs(curr - currentDayFoSec) < Math.abs(prev - currentDayFoSec)
-        ? curr
-        : prev;
-    });
-  };
-  const weatherDetails = getWeatherDetails(currentWeather, seconds);
+  // const date = new Date();
+  // const seconds = date.getTime() / THOUSAND;
+  // const getWeatherDetails = (currentDetailWeather, currentDayFoSec) => {
+  //   return currentDetailWeather?.list?.reduce(function (prev, curr) {
+  //     return Math.abs(curr - currentDayFoSec) < Math.abs(prev - currentDayFoSec)
+  //       ? curr
+  //       : prev;
+  //   });
+  // };
+  // const weatherDetails = getWeatherDetails(currentWeather, seconds);
 
   const getCountryListByDay = (countryListWeatherDa, currentDays) => {
     return countryListWeatherDa?.list?.filter(
@@ -77,7 +76,7 @@ export const useWeather = () => {
     filteredByCurrentDay,
     currentWeather,
     setCurrentCountry,
-    weatherDetails,
+    // weatherDetails,
 
     filteredByNextDay1,
     filteredByNextDay2,

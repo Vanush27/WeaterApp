@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React, {useCallback} from 'react';
 import {View} from 'react-native';
-import {BackgroundImage} from '@components';
 import SwiperFlatList from 'react-native-swiper-flatlist';
+import {BackgroundImage} from '@components';
 import {useWeather} from '@hooks';
 
 import {useStyles} from './styles';
@@ -10,34 +10,23 @@ const HorizontalCarousel = () => {
   const {styles} = useStyles();
   const {countryListWeather} = useWeather();
 
-  const renderItem = ({item}) => {
+  const renderItem = useCallback(({item}) => {
     return (
       <View style={styles.render_wrapper}>
-        {countryListWeather?.map((index: string) => (
-          <BackgroundImage
-            countryListWeather={countryListWeather}
-            key={index}
-            obj={item}
-          />
-        ))}
+        <BackgroundImage obj={item} />
       </View>
     );
-  };
+  }, []);
 
   return (
     <View style={{flex: 1}}>
       <SwiperFlatList
+        // autoplayDelay={2}
+        data={countryListWeather}
         paginationActiveColor={'green'}
+        paginationStyle={styles.pagination_style}
         renderItem={renderItem}
         showPagination
-        autoplayDelay={2}
-        // index={2}
-        data={countryListWeather}
-        paginationStyle={{
-          position: 'absolute',
-          top: 30,
-          left: 10,
-        }}
       />
     </View>
   );

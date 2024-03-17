@@ -8,10 +8,9 @@ export function useStyles() {
 
   const styles = StyleSheet.create({
     container_image_card: {
-      // flex: 1,
+      flex: 1,
     },
     header: {
-      // flex: 2,
       fontSize: 32,
       fontWeight: 'bold',
       color: 'white',
@@ -23,49 +22,34 @@ export function useStyles() {
 
     image: {
       height: '100%',
-      // marginLeft: 2,
-      // marginRight: 2,
+      marginLeft: 2,
+      marginRight: 2,
     },
     image_card: {
-      // width: '100%',
-      // borderBottomColor: 'red',
-      // borderWidth: 1,
-      // padding: 30,
-      // resizeMode: 'cover',
+      width: '100%',
+      borderBottomColor: 'red',
+      borderWidth: 1,
+      padding: 30,
+      resizeMode: 'cover',
     },
 
     wrapper_top: {
-      flex: 1,
+      flex: 0.3,
       display: 'flex',
       justifyContent: 'center',
       // backgroundColor: 'rgba(255,255,255,0.2)',
-      backgroundColor: 'rgba(0,0,0,0.1)',
+      backgroundColor: 'rgba(5,2,0,0.4)',
+      // backgroundColor: 'rgba(0,0,0,0.1)',
     },
     wrapper_bootom: {
-      flex: 2,
-      // height: 300,
-      // display: 'flex',
-      justifyContent: 'center',
+      flex: 0.7,
+      display: 'flex',
+      // justifyContent: 'center',
       // paddingTop: 20,
 
       // alignItems: 'center',
-      // backgroundColor: 'rgba(255,255,255,0.)',
       backgroundColor: 'rgba(5,2,0,0.4)',
     },
-
-    // name_temp: {
-    //   flexDirection: 'row',
-    //   justifyContent: 'space-evenly',
-    // },
-
-    // country_name_text: {
-    //   fontFamily: theme.fonts?.fontFamily.monserratBold,
-    //   fontWeight: '400',
-    //   fontSize: size.typography_36,
-    //   lineHeight: lineHeight.lineHeight_36,
-    //   color: 'rgb(31,3,168)',
-    //   textTransform: 'uppercase',
-    // },
 
     // temp_style: {
     //   fontFamily: theme.fonts?.fontFamily.monserratBold,

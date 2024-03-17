@@ -43,26 +43,26 @@ const Modal: React.FunctionComponent<TOverlayComponentProps> = ({
   return (
     <View>
       <Button
+        buttonStyle={styles.button}
         title={temperature}
         onPress={toggleOverlay}
-        buttonStyle={styles.button}
       />
       <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
         <Text style={styles.textPrimary}>{t('Hello')}</Text>
         <Text style={styles.textSecondary}>{name}</Text>
         <CheckBox
           checked={selectedIndex === 0}
-          onPress={handleSelect0}
           checkedIcon="dot-circle-o"
-          uncheckedIcon="circle-o"
           title={celsiusTemp}
+          uncheckedIcon="circle-o"
+          onPress={handleSelect0}
         />
         <CheckBox
           checked={selectedIndex === 1}
-          onPress={handleSelect1}
           checkedIcon="dot-circle-o"
-          uncheckedIcon="circle-o"
           title={fahrenheitTemp}
+          uncheckedIcon="circle-o"
+          onPress={handleSelect1}
         />
       </Overlay>
     </View>

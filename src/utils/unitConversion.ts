@@ -1,5 +1,7 @@
+import {CELSIUS_TEMP} from '@constants';
+
 export function kelvinToCelsius(num: number) {
-  return Math.round(num - 273.15) + '\u00b0C';
+  return Math.round(num - 273.15) + ' ' + CELSIUS_TEMP;
 }
 
 export function celsiusToFahrenheit(c: number) {
