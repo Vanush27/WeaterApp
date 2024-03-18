@@ -8,7 +8,7 @@ export function useStyles() {
     container_message: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      margin: 30,
+      alignItems: 'center',
     },
     radio_btn: {
       alignItems: 'center',

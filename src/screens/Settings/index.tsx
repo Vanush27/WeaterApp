@@ -1,35 +1,41 @@
 import {View} from 'react-native';
 import {useStyles} from './styles';
-import {SettingItem} from '../../ui-modules';
 import {Photo, Text} from '@components';
 import {CELSIUS_TEMP, FAHRENHEIT_TEMP} from '@constants';
 import {useAppTranslation} from '@hooks';
+import React from 'react';
+import {LanguageItem, TemperatureItem, ThemeModeSwitcher} from '@ui-modules';
+
+// import THEME from '@assets/icons/theme';
+// import SettingsScreenIcons from '../utils/SettingsScreenIcons';
 
 const Settings = () => {
   const {styles} = useStyles();
 
   const temperature = 'Temperature';
-
+  const language = 'Language';
   const {t} = useAppTranslation();
-  // const language: string = 'Language';
 
-  const languages = 'ru / en ';
+  const languages = ['ru', 'en', 'arm'];
 
   return (
     <View style={styles.container}>
-      <Text>{t('Settings')}</Text>
+      <Text style={styles.title}>{t('Settings')}</Text>
 
-      <SettingItem
-        celsiusTemp={CELSIUS_TEMP}
-        fahrenheitTemp={FAHRENHEIT_TEMP}
-        name={temperature}
-      />
+      <View style={styles.theme_wrapper}>
+        <ThemeModeSwitcher />
+      </View>
 
-      {/* <SettingItem
-        fahrenheitTemp={languages}
-        measure={languages}
-        name={language}
-      /> */}
+      <View style={styles.item_wrapper}>
+        <TemperatureItem
+          celsiusTemp={CELSIUS_TEMP}
+          fahrenheitTemp={FAHRENHEIT_TEMP}
+          name={temperature}
+        />
+      </View>
+      <View style={styles.item_wrapper}>
+        <LanguageItem name={language} />
+      </View>
 
       {/* <Photo /> */}
     </View>
