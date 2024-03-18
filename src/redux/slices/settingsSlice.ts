@@ -1,13 +1,18 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {ThemeStats} from '@ui-modules';
 
 type TInitialState = {
   languages: string;
   temperature: string;
+
+  themeStats: ThemeStats;
 };
 
 export const initialState: TInitialState = {
   languages: '',
   temperature: '\u00b0 C',
+
+  themeStats: ThemeStats.LIGHT,
 };
 
 const settingsSlice = createSlice({
@@ -21,9 +26,14 @@ const settingsSlice = createSlice({
     setTemperature: (state, action) => {
       state.temperature = action.payload;
     },
+
+    setThemeVariant: (state, action: PayloadAction<ThemeStats>) => {
+      state.themeStats = action.payload;
+    },
   },
 });
 
-export const {setLanguages, setTemperature} = settingsSlice.actions;
+export const {setLanguages, setTemperature, setThemeVariant} =
+  settingsSlice.actions;
 
 export default settingsSlice.reducer;

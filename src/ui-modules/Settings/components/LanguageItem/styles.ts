@@ -7,12 +7,30 @@ export function useStyles() {
   const {theme} = useTheme();
 
   const styles = StyleSheet.create({
+    container_message: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+
     dialog_wrapper: {
       borderRadius: 15,
-      width: '80%',
-      height: '30%',
+      width: '90%',
+      height: '40%',
     },
-    text_checked: {fontSize: size.typography_24, color: colors.teal},
+    icon_lang: {
+      flexDirection: 'row',
+      width: '100%',
+      justifyContent: 'space-around',
+
+      alignItems: 'center',
+    },
+    text_lang: {
+      fontSize: size.typography_18,
+      color: colors.teal,
+      fontWeight: '900',
+      marginLeft: 90,
+    },
     button: {
       fontSize: size.typography_24,
       margin: 5,
