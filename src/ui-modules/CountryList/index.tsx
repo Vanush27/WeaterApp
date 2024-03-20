@@ -21,7 +21,7 @@ interface ICountryListProps {
 }
 const CountryList = ({data, loading}: ICountryListProps) => {
   const {styles} = useStyles();
-  const {createNewCountry} = useWeather();
+  const {createNewCountry, setCurrentCountry} = useWeather();
   const {dispatchSetCityName} = useCountry();
 
   const navigation =
@@ -31,10 +31,10 @@ const CountryList = ({data, loading}: ICountryListProps) => {
     try {
       const getSearchCountry = await getWeatherViaLocation({
         city_name: city,
-        lang: 'en',
       });
 
       await createNewCountry(getSearchCountry);
+      setCurrentCountry(getSearchCountry);
       dispatchSetCityName('');
 
       navigation?.navigate('Home');

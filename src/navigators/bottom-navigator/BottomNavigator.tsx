@@ -10,17 +10,23 @@ const BottomTab = createBottomTabNavigator();
 
 const settingIcon = (focused: boolean) => {
   return (
-    <SettingsIcon color={focused ? 'blue' : 'black'} name="setting" size={24} />
+    <SettingsIcon
+      color={focused ? '#E68406' : 'black'}
+      name="setting"
+      size={24}
+    />
   );
 };
 const addCountryIcon = (focused: boolean) => {
-  return <AddIcon color={focused ? 'blue' : 'black'} name="city" size={24} />;
+  return (
+    <AddIcon color={focused ? '#E68406' : 'black'} name="city" size={24} />
+  );
 };
 
 const weatherIcon = (focused: boolean) => {
   return (
     <MaterialCommunityIcons
-      color={focused ? 'blue' : 'black'}
+      color={focused ? '#E37C07' : 'black'}
       name="weather-hazy"
       size={24}
     />
@@ -37,7 +43,7 @@ const BottomNavigator = () => {
           tabBarIcon: ({focused}) => weatherIcon(focused),
           title: 'Home',
           headerShown: false,
-          tabBarActiveTintColor: 'blue',
+          tabBarActiveTintColor: '#E37C07',
         })}
       />
 
@@ -48,7 +54,7 @@ const BottomNavigator = () => {
           tabBarIcon: ({focused}) => addCountryIcon(focused),
           title: 'City',
           headerShown: false,
-          tabBarActiveTintColor: 'blue',
+          tabBarActiveTintColor: '#E68406',
         })}
       />
       <BottomTab.Screen
@@ -58,7 +64,7 @@ const BottomNavigator = () => {
           tabBarIcon: ({focused}) => settingIcon(focused),
           title: 'Settings',
           headerShown: false,
-          tabBarActiveTintColor: 'blue',
+          tabBarActiveTintColor: '#E37C07',
         })}
       />
     </BottomTab.Navigator>

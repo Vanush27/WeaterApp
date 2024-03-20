@@ -1,51 +1,57 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {ImageBackground, Text, View} from 'react-native';
 import moment from 'moment';
-import {kelvinToCelsius} from '@utils/unitConversion';
+import {kelvinToCelsius, kelvinToCelsiusDaily} from '@utils/unitConversion';
 
 import TemperatureHighIcon from 'react-native-vector-icons/FontAwesome5';
-import {Humidity} from '@assets/icons';
+import {Humidity, SNOW_2} from '@assets/icons';
 
 import {useStyles} from './styles';
+import {ImagesAssets} from '@assets/images/ImagesAssets';
+import {CELSIUS_TEMP} from '@constants';
+import {colors} from '@assets/colors';
 
-const DailyForecast = ({daily}: any) => {
+const DailyForecast = ({daily, maxTempMax, minTempMin, country}: any) => {
   const {styles} = useStyles();
 
   return (
-    <View style={styles.day_container}>
-      <View style={styles.date_container}>
+    <View style={styles.dayly_container}>
+      <ImageBackground
+        resizeMode="cover"
+        style={styles.dayly_image}
+        imageStyle={{
+          borderRadius: 15,
+          backgroundColor: 'rgba(5,2,0, 0.4)',
+        }}
+        source={
+          country === 'AM' ? ImagesAssets.Yerevan_Summer : ImagesAssets.Dehli
+        }>
         <View style={styles.week_day}>
-          <View style={styles.week_day_name}>
+          <View style={styles.left_container}>
             <Text style={styles.text_color}>
               {moment(daily?.dt_txt).format('dddd')}
             </Text>
-          </View>
-          <View style={styles.icon_temp_view}>
-            {/* <Image
-              resizeMode={'contain'}
-              style={styles.weather_icon}
-              source={{
-                uri: `${imageUrl}/${daily?.weather[0].icon}@2x.png`,
-              }}
-            /> */}
             <Text style={styles.text_color}>
               {daily?.weather[0]?.description}
             </Text>
           </View>
 
-          <View style={styles.degree_view}>
+          <View style={styles.right_container}>
+            <SNOW_2 fill={colors.lightGold} height={100} width={130} />
+            <TemperatureHighIcon name="temperature-high" size={24} />
             <Text style={styles.degree}>
-              <TemperatureHighIcon name="temperature-high" size={24} />
-              {kelvinToCelsius(daily?.main?.temp)}
+              {kelvinToCelsiusDaily(maxTempMax)}
+              {kelvinToCelsiusDaily(minTempMin)}
+              {CELSIUS_TEMP}
             </Text>
 
-            <View>
-              <Text> {daily?.main?.humidity}%</Text>
-              <Humidity height={30} width={30} />
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <Text style={styles.degree}> {daily?.main?.humidity}%</Text>
+              <Humidity fill={colors.lightGold} height={30} width={30} />
             </View>
           </View>
         </View>
-      </View>
+      </ImageBackground>
     </View>
   );
 };

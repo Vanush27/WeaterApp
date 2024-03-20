@@ -1,45 +1,29 @@
-import React, {useState} from 'react';
-import {ScrollView, View} from 'react-native';
-import {Text} from '@components';
+import React from 'react';
+import {View} from 'react-native';
 
-import {useAppTranslation, useWeather} from '@hooks';
-import {useStyles} from './styles';
+import {useAppTranslation, useWeatherDetail} from '@hooks';
 import DailyForecast from '../DailyForecast';
 
-const WeatherInfo = () => {
+import {useStyles} from './styles';
+
+const WeatherInfo = ({list}: any) => {
   const {styles} = useStyles();
   const {t} = useAppTranslation();
 
-  const {filteredByCurrentDay} = useWeather();
-  const [loading, setLoading] = useState(false);
-
-  const {
-    filteredByNextDay1,
-    filteredByNextDay2,
-    filteredByNextDay3,
-    filteredByNextDay4,
-    filteredByNextDay5,
-  } = useWeather();
+  const {daysData} = useWeatherDetail(list);
 
   return (
-    <>
-      <View style={styles.container_weather}>
-        {loading ? (
-          <Text>{t('Loading...')} </Text>
-        ) : (
-          !!filteredByCurrentDay?.length &&
-          filteredByCurrentDay[0] && (
-            <ScrollView>
-              <DailyForecast daily={filteredByNextDay1[0]} />
-              <DailyForecast daily={filteredByNextDay2[0]} />
-              <DailyForecast daily={filteredByNextDay3[0]} />
-              <DailyForecast daily={filteredByNextDay4[0]} />
-              <DailyForecast daily={filteredByNextDay5[0]} />
-            </ScrollView>
-          )
-        )}
-      </View>
-    </>
+    <View style={styles.container_weather}>
+      {daysData.map((day, index) => (
+        <DailyForecast
+          country={list.city.country}
+          daily={day.daily}
+          key={index}
+          maxTempMax={day.maxTempMax}
+          minTempMin={day.minTempMin}
+        />
+      ))}
+    </View>
   );
 };
 

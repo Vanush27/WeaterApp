@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 
 import languageDetector from './languageDetector';
-import {ru, en} from '.';
+import {ru, en, arm} from './index';
 
 const resources = {
   en: {
@@ -10,6 +10,9 @@ const resources = {
   },
   ru: {
     translation: ru,
+  },
+  arm: {
+    translation: arm,
   },
 };
 

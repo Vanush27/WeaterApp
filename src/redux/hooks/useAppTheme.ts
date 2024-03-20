@@ -8,32 +8,31 @@ import {useAppDispatch, useAppSelector} from '@hooks';
 
 import {setThemeVariant} from '@redux/slices/settingsSlice';
 import {ThemeStats} from '@ui-modules';
+import {createSelector} from 'reselect';
 
 export const useAppTheme = () => {
   const dispatch = useAppDispatch();
 
   const {themeStats} = useAppSelector(state => state.settings);
 
-  const getTheme = (lang: string, themeVariant: any) => {
-    return;
-  };
+  const isDarkMode = themeStats === ThemeStats.DARK;
 
-  const getCachedTheme = async () => {
-    // const storedTheme = await themeGetStorageItem();
-    // if (storedTheme === null) {
-    //   updateStorageItem(ThemeStats);
-    //   const phoneTheme = Appearance.getColorScheme();
-    //   if (phoneTheme) {
-    //     dispatchSetTheme(phoneTheme as ThemeStats);
-    //   } else {
-    //     dispatchSetTheme(ThemeStats.LIGHT);
-    //   }
-    // }
-  };
+  // const getCachedTheme = async () => {
+  //   // const storedTheme = await themeGetStorageItem();
+  //   // if (storedTheme === null) {
+  //   //   updateStorageItem(ThemeStats);
+  //   //   const phoneTheme = Appearance.getColorScheme();
+  //   //   if (phoneTheme) {
+  //   //     dispatchSetTheme(phoneTheme as ThemeStats);
+  //   //   } else {
+  //   //     dispatchSetTheme(ThemeStats.LIGHT);
+  //   //   }
+  //   // }
+  // };
 
-  useEffect(() => {
-    getCachedTheme();
-  }, []);
+  // useEffect(() => {
+  //   getCachedTheme();
+  // }, []);
 
-  return {themeStats};
+  return {isDarkMode};
 };

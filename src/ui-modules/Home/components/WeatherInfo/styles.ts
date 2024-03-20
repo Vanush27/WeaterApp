@@ -6,8 +6,11 @@ export function useStyles() {
 
   const styles = StyleSheet.create({
     container_weather: {
-      margin: 8,
-      backgroundColor: '#94f15d',
+      shadowOffset: {width: 1, height: 1},
+      shadowColor: '#94f15d',
+      shadowOpacity: 1,
+      elevation: 9,
+      // backgroundColor: '#000',
     },
   });
 
