@@ -12,3 +12,6 @@ export {default as LIGHT_THEME} from './lightTheme.svg';
 export {default as ArmeniaFlag} from './ArmeniaFlag.svg';
 export {default as RussiaFlag} from './RussiaFlag.svg';
 export {default as USDFlag} from './USDFlag.svg';
+
+// icon weather
+export {default as SNOW_2} from './static/snowy-2.svg';

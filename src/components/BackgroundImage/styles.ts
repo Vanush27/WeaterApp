@@ -1,19 +1,31 @@
-import {lineHeight, size} from '@assets/fonts/size';
-import {H_MAX_HEIGHT} from '@constants';
-import {useTheme} from '@rneui/themed';
 import {StyleSheet} from 'react-native';
+import {colors} from '@assets/colors';
+import {fonts} from '@assets/fonts';
+import {lineHeight} from '@assets/fonts/size';
+
+import {useAppTheme} from '@redux/hooks/useAppTheme';
+import {useTheme} from '@rneui/themed';
 
 export function useStyles() {
   const {theme} = useTheme();
+  const {isDarkMode} = useAppTheme();
 
   const styles = StyleSheet.create({
     container_image_card: {
       flex: 1,
     },
+    name: {
+      color: isDarkMode ? colors?.lavender : colors.success,
+      fontFamily: fonts?.family?.monserratItalic,
+      fontSize: fonts?.size?.typography_24,
+      lineHeight: lineHeight.lineHeight_24,
+    },
     header: {
-      fontSize: 32,
+      lineHeight: lineHeight.lineHeight_24,
+      color: isDarkMode ? colors?.lavender : colors.success,
+      fontFamily: fonts?.family?.monserratBold,
+      fontSize: fonts?.size?.typography_30,
       fontWeight: 'bold',
-      color: 'white',
     },
 
     container: {
@@ -22,14 +34,12 @@ export function useStyles() {
 
     image: {
       height: '100%',
-      marginLeft: 2,
-      marginRight: 2,
     },
     image_card: {
       width: '100%',
       borderBottomColor: 'red',
       borderWidth: 1,
-      padding: 30,
+      padding: 16,
       resizeMode: 'cover',
     },
 

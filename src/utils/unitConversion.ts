@@ -11,3 +11,7 @@ export function celsiusToFahrenheit(c: number) {
 export function fahrenheitToCelsius(f: number) {
   return Math.round(((f - 32) * 5) / 9);
 }
+
+export function kelvinToCelsiusDaily(num: number) {
+  return Math.round(num - 273.15);
+}

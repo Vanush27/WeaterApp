@@ -6,6 +6,7 @@ type TInitialState = {
   temperature: string;
 
   themeStats: ThemeStats;
+  isDarkMode: boolean;
 };
 
 export const initialState: TInitialState = {
@@ -13,6 +14,7 @@ export const initialState: TInitialState = {
   temperature: '\u00b0 C',
 
   themeStats: ThemeStats.LIGHT,
+  isDarkMode: false,
 };
 
 const settingsSlice = createSlice({

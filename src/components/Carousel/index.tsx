@@ -21,9 +21,8 @@ const HorizontalCarousel = () => {
   return (
     <View style={{flex: 1}}>
       <SwiperFlatList
-        // autoplayDelay={2}
         data={countryListWeather}
-        paginationActiveColor={'green'}
+        paginationActiveColor={'#7E38B7'}
         paginationStyle={styles.pagination_style}
         renderItem={renderItem}
         showPagination

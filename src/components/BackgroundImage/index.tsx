@@ -1,21 +1,16 @@
 import * as React from 'react';
-import {useEffect, useRef, useState} from 'react';
 import {ImageBackground, View, FlatList} from 'react-native';
 import {useStyles} from './styles';
 import {ImagesAssets} from '@assets/images/ImagesAssets';
 
 import {WeatherDetailsList} from '@ui-modules';
 
-import {useAppTranslation, useWeather, useWeatherDetail} from '@hooks';
-// import {useWeather} from '@hooks';
-// import {kelvinToCelsius} from '@utils/unitConversion';
+import {useAppTranslation, useWeatherDetail} from '@hooks';
+
 import {Text} from '@components';
 import {useAppSettings} from '@redux/hooks/useAppSettings';
-import {CELSIUS_TEMP, FAHRENHEIT_TEMP, THOUSAND} from '@constants';
+import {CELSIUS_TEMP, FAHRENHEIT_TEMP} from '@constants';
 import {kelvinToCelsius} from '@utils/unitConversion';
-
-// import {ImagesAssets} from 'assets/images/ImagesAssets';
-// import {IImageCountry} from 'types/ImageCountry';
 
 interface IBackgroundImageProps {
   obj: any;
@@ -23,16 +18,10 @@ interface IBackgroundImageProps {
 const BackgroundImage = ({obj}: IBackgroundImageProps) => {
   const {styles} = useStyles();
   const {t} = useAppTranslation();
+  const {dispatchSetTheme, themeStats} = useAppSettings();
 
-  // const date = new Date();
-  // const seconds = date.getTime() / THOUSAND;
+  // const isDark = themeStats === 'dark';
 
-  // const getWeatherDetails = list => {
-  //   return list?.list?.reduce(function (prev, curr) {
-  //     return Math.abs(curr - seconds) < Math.abs(prev - seconds) ? curr : prev;
-  //   });
-  // };
-  // const weatherDetails = getWeatherDetails(obj);
   const {weatherDetails} = useWeatherDetail(obj);
 
   const {temperature} = useAppSettings();
@@ -50,13 +39,17 @@ const BackgroundImage = ({obj}: IBackgroundImageProps) => {
     <View style={styles.container_image_card}>
       <ImageBackground
         resizeMode="cover"
-        source={ImagesAssets.Yerevan_winter}
+        source={
+          obj?.city.country === 'AM'
+            ? ImagesAssets.Yerevan_winter
+            : ImagesAssets.Dehli
+        }
         style={styles.image}>
         <View style={styles.container}>
           <View style={styles.wrapper_top}>
-            <Text h4>{obj?.city?.name}</Text>
+            <Text style={styles.name}>{obj?.city?.name}</Text>
 
-            <Text style={styles.header} h3>
+            <Text style={styles.header}>
               {temperature === CELSIUS_TEMP
                 ? kelvinToCelsius(weatherDetails?.main.temp)
                 : weatherDetails?.main.temp + ' ' + FAHRENHEIT_TEMP}

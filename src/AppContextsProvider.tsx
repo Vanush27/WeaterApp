@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {ThemeProvider} from '@rneui/themed';
+import ThemeProvider from './theme/ThemeProvider';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
 import {I18nextProvider} from 'react-i18next';

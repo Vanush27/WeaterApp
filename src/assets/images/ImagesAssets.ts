@@ -10,6 +10,7 @@ export const ImagesAssets = {
   sunrise: require('./sunrise.png'),
 
   backgroundImage: require('./backgroundImage.jpg'),
-  Yerevan_Summer: require('./Yerevan.webp'),
+  Yerevan_Summer: require('./Yerevan_Summer.jpeg'),
   Yerevan_winter: require('./yerevan_winter.jpeg'), // 612 - 612
+  Dehli: require('./dehli.jpeg'), // 612 - 612
 };

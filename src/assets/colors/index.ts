@@ -35,6 +35,7 @@ export const colors: IThemeColors = {
   white: '#FFFFFF',
   primaryDarkGray: '#333333',
   yellow: '#F1C653',
+
   tan: '#DBD1BD',
   teal: '#007D8A',
   link: '#488AD7',

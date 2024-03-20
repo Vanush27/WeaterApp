@@ -17,7 +17,7 @@ module.exports = {
       extensions: [],
     },
 
-    lngs: ['en', 'ru'],
+    lngs: ['en', 'ru', 'arm'],
     ns: ['resource'],
     defaultLng: 'en',
     defaultNs: 'resource',

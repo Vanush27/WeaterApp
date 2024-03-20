@@ -1,9 +1,12 @@
 import type {ReactNode} from 'react';
 import {ThemeProvider as RNEThemeProvider} from '@rneui/themed';
-import {theme} from '@assets';
+import {lightTheme} from '@assets';
+import {useAppTheme} from '@redux/hooks/useAppTheme';
 
 const ThemeProvider = ({children}: IThemeProviderProps) => {
-  return <RNEThemeProvider theme={theme}>{children}</RNEThemeProvider>;
+  // const {getTheme} = useAppTheme();
+  // theme={getTheme(lang, themeVariant)}
+  return <RNEThemeProvider theme={lightTheme}>{children}</RNEThemeProvider>;
 };
 
 interface IThemeProviderProps {

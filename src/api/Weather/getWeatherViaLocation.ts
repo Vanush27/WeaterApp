@@ -1,9 +1,9 @@
 import {WEATHER_API_KEY} from '@env';
 import {baseUrl} from '../baseUrl';
 
-const getWeatherViaLocation = async ({city_name, lang}: TCityName) => {
+const getWeatherViaLocation = async ({city_name}: TCityName) => {
   const {data} = await baseUrl.get(
-    `/forecast?q=${city_name}&lang=${lang}&appid=${WEATHER_API_KEY}`,
+    `/forecast?q=${city_name}&appid=${WEATHER_API_KEY}`,
   );
 
   return data;

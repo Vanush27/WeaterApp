@@ -7,46 +7,42 @@ export function useStyles() {
 
   const styles = StyleSheet.create({
     box_wrapper: {
-      backgroundColor: colors.detail_weather,
-      borderWidth: 1,
+      // backgroundColor: colors.detail_weather,
+      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      borderWidth: 2,
       borderColor: colors.detail_border,
-      height: 120,
       width: 150,
       borderRadius: 16,
+      marginTop: 20,
     },
 
     wrapper_header: {
       flexDirection: 'row',
-      margin: 5,
-      width: '80%',
-      alignItems: 'flex-start',
+      marginTop: 5,
+      alignItems: 'center',
+      justifyContent: 'space-around',
     },
     header_text: {
       color: colors.tan,
-      marginLeft: 15,
       textTransform: 'uppercase',
       fontWeight: '700',
-      fontSize: 16,
+      fontSize: 20,
     },
-    icon: {height: 32, width: 32, tintColor: colors.lighterGrey},
+    icon: {height: 30, width: 30, tintColor: colors.lighterGrey},
 
     measure_wrapper: {
-      // width: '100%',
-      // margin: 10,
-
+      marginTop: 15,
       flexDirection: 'row',
-      // justifyContent: 'flex-start',
-      // alignItems: 'center',
       justifyContent: 'center',
     },
     measure_weather: {
       color: colors.tan,
-      fontSize: 22,
-      fontWeight: '700',
+      fontSize: 28,
+      fontWeight: '900',
     },
     measure_si_unit: {
       color: colors.tan,
-      fontSize: 22,
+      fontSize: 28,
       marginLeft: 5,
       fontWeight: '700',
     },
