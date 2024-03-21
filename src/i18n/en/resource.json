@@ -1,4 +1,15 @@
 {
   "temperature": "Temperature",
-  "Loading...": "Loading..."
+  "Loading...": "Loading...",
+  "Settings": "Settings",
+  "Weather Detail": "Weather Detail",
+  "wind": "wind",
+  "rainfall": "rainfall",
+  "sunrise": "sunrise",
+  "sunset": "sunset",
+  "m": "m",
+  "pressure": "pressure",
+  "humidity": "humidity",
+  "Daily": "Daily",
+  "Theme": "Theme"
 }

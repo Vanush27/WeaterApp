@@ -1,15 +1,6 @@
-export interface ILanguage {
+export interface ILanguageList {
   label: string;
-  code: string;
-  icon?: string;
+  value: number;
+  icon?: JSX.Element;
+  cca2: string;
 }
-
-export const LANGAUGE_LIST: ILanguage[] = [
-  {label: 'English', code: 'en', icon: 'en'},
-  {
-    label: 'Россия',
-    code: 'ru',
-    icon: 'ru',
-  },
-  {label: 'Հայերեն', code: 'arm', icon: 'arm'},
-];

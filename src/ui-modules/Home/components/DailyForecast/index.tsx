@@ -4,7 +4,7 @@ import moment from 'moment';
 import {kelvinToCelsius, kelvinToCelsiusDaily} from '@utils/unitConversion';
 
 import TemperatureHighIcon from 'react-native-vector-icons/FontAwesome5';
-import {Humidity, SNOW_2} from '@assets/icons';
+import {Humidity, Snowy_Clouds} from '@assets/icons';
 
 import {useStyles} from './styles';
 import {ImagesAssets} from '@assets/images/ImagesAssets';
@@ -13,6 +13,14 @@ import {colors} from '@assets/colors';
 
 const DailyForecast = ({daily, maxTempMax, minTempMin, country}: any) => {
   const {styles} = useStyles();
+
+  // const weatherState = ['', '', 'light rain']; scattered clouds
+  const weatherDescription = daily?.weather[0]?.description;
+
+  const overcastClouds = weatherDescription?.includes('overcast clouds');
+  const clearSky = weatherDescription?.includes('clear sky');
+  const lightRain = weatherDescription?.includes('light rain');
+  const scatteredClouds = weatherDescription?.includes('scattered clouds');
 
   return (
     <View style={styles.dayly_container}>
@@ -32,22 +40,37 @@ const DailyForecast = ({daily, maxTempMax, minTempMin, country}: any) => {
               {moment(daily?.dt_txt).format('dddd')}
             </Text>
             <Text style={styles.text_color}>
-              {daily?.weather[0]?.description}
+              {/* {overcastClouds && <Text>overcastClouds</Text>} */}
+              {/* {clearSky && <Text>clearSky</Text>} */}
+              {/* {daily?.weather[0]?.description.includes('"clear sky')} */}
             </Text>
           </View>
 
           <View style={styles.right_container}>
-            <SNOW_2 fill={colors.lightGold} height={100} width={130} />
-            <TemperatureHighIcon name="temperature-high" size={24} />
-            <Text style={styles.degree}>
-              {kelvinToCelsiusDaily(maxTempMax)}
-              {kelvinToCelsiusDaily(minTempMin)}
-              {CELSIUS_TEMP}
-            </Text>
+            <Snowy_Clouds fill={colors.lightGold} height={100} width={130} />
 
-            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <Text style={styles.degree}> {daily?.main?.humidity}%</Text>
-              <Humidity fill={colors.lightGold} height={30} width={30} />
+            <View style={styles.right_container_temp}>
+              <TemperatureHighIcon
+                color="blue"
+                name="temperature-high"
+                size={24}
+              />
+              <Text style={styles.min_temp}>
+                {kelvinToCelsiusDaily(minTempMin)}
+                {CELSIUS_TEMP}
+              </Text>
+            </View>
+
+            <View style={styles.right_container_temp}>
+              <TemperatureHighIcon
+                color="red"
+                name="temperature-high"
+                size={24}
+              />
+              <Text style={styles.max_temp}>
+                {kelvinToCelsiusDaily(maxTempMax)}
+                {CELSIUS_TEMP}
+              </Text>
             </View>
           </View>
         </View>

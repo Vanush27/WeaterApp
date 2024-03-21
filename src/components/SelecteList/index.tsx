@@ -14,11 +14,11 @@ interface ISelecteListProps {
 const SelecteList = ({index, data, handleSelectItem}: ISelecteListProps) => {
   const {styles} = useStyles();
 
-  // const handleDeleteItem = index => {
-  //   const newData = [...data];
-  //   newData.splice(index, 1); // Remove item at index
-  //   setData(newData);
-  // };
+  const handleDeleteItem = index => {
+    const newData = [...data];
+    newData.splice(index, 1); // Remove item at index
+    // setData(newData);
+  };
 
   return (
     <View key={index} style={styles.container_country}>
