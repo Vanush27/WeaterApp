@@ -11,6 +11,7 @@ import {Text} from '@components';
 import {useAppSettings} from '@redux/hooks/useAppSettings';
 import {CELSIUS_TEMP, FAHRENHEIT_TEMP} from '@constants';
 import {kelvinToCelsius} from '@utils/unitConversion';
+import {contriList} from '@utils/allCoutry';
 
 interface IBackgroundImageProps {
   obj: any;
@@ -26,10 +27,16 @@ const BackgroundImage = ({obj}: IBackgroundImageProps) => {
 
   const {temperature} = useAppSettings();
 
+  const result = () => {
+    const foundCountry = contriList.find(
+      item => item.cca2 === obj?.city.country,
+    );
+    return foundCountry ? foundCountry.flag : '';
+  };
+
   const renderListItem = ({item}) => {
     return (
       <View style={styles.image_card}>
-        <Text>{item?.city?.country}</Text>
         <WeatherDetailsList list={item} />
       </View>
     );
@@ -39,21 +46,26 @@ const BackgroundImage = ({obj}: IBackgroundImageProps) => {
     <View style={styles.container_image_card}>
       <ImageBackground
         resizeMode="cover"
+        style={styles.image}
         source={
           obj?.city.country === 'AM'
             ? ImagesAssets.Yerevan_winter
             : ImagesAssets.Dehli
-        }
-        style={styles.image}>
+        }>
         <View style={styles.container}>
           <View style={styles.wrapper_top}>
-            <Text style={styles.name}>{obj?.city?.name}</Text>
+            <View>
+              <Text style={styles.name}>{obj?.city?.name}</Text>
+              <Text style={styles.header}>
+                {temperature === CELSIUS_TEMP
+                  ? kelvinToCelsius(weatherDetails?.main.temp)
+                  : weatherDetails?.main.temp + ' ' + FAHRENHEIT_TEMP}
+              </Text>
+            </View>
 
-            <Text style={styles.header}>
-              {temperature === CELSIUS_TEMP
-                ? kelvinToCelsius(weatherDetails?.main.temp)
-                : weatherDetails?.main.temp + ' ' + FAHRENHEIT_TEMP}
-            </Text>
+            <View>
+              <Text style={styles.flag}>{result()}</Text>
+            </View>
           </View>
 
           <View style={styles.wrapper_bootom}>

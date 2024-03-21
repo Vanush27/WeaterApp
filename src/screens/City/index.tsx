@@ -8,7 +8,7 @@ import {useStyles} from './styles';
 import {SelecteList, PlusButton} from '@components';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-// import {ICountryListWeather} from '@types/Weather';
+
 import {ICountryListWeather} from '../../types/Weather';
 import {ScrollView} from 'react-native-gesture-handler';
 import DeleteIcon from 'react-native-vector-icons/AntDesign';
@@ -62,6 +62,34 @@ const City = () => {
     setData(newData);
   };
 
+  const handleDeleteItem = index => {
+    // const newData = [...data];
+    // newData.splice(index, 1);
+    // setData(newData);
+  };
+
+  const renderItemContry = () => {
+    return countryListWeather?.map((obj: any, index: string) => {
+      return (
+        <View key={index}>
+          <SelecteList
+            data={obj}
+            handleSelectItem={handleSelectItem}
+            index={index}
+          />
+          {obj?.city?.selected && (
+            <DeleteIcon
+              color={'red'}
+              name="delete"
+              size={24}
+              onPress={handleDeleteItem}
+            />
+          )}
+        </View>
+      );
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.country_list}>
@@ -80,22 +108,7 @@ const City = () => {
             onPress={handleToggleSelectAll}
           />
         </View>
-        <ScrollView>
-          {/* TODO list country */}
-          {!!countryListWeather?.length &&
-            countryListWeather?.map((obj: any, index: string) => (
-              <View key={index}>
-                <SelecteList
-                  data={obj}
-                  handleSelectItem={handleSelectItem}
-                  index={index}
-                />
-                {obj?.city?.selected && (
-                  <DeleteIcon color={'red'} name="delete" size={24} />
-                )}
-              </View>
-            ))}
-        </ScrollView>
+        <ScrollView>{renderItemContry()}</ScrollView>
       </View>
 
       <View style={styles.plus_btn_wrapper}>

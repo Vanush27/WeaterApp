@@ -22,7 +22,6 @@ export function useStyles() {
       flexDirection: 'row',
       width: '100%',
       justifyContent: 'space-around',
-
       alignItems: 'center',
     },
     text_lang: {

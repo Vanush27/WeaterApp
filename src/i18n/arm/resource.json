@@ -1,4 +1,15 @@
 {
-  "temperature": "__Температура__",
-  "Loading...": "__Loading...__"
+  "temperature": "հա",
+  "Loading...": "սհդձսհդհձ սձդկսկդ...__",
+  "Settings": "__Settings__",
+  "Weather Detail": "__Weather Detail__",
+  "wind": "__wind__",
+  "rainfall": "__rainfall__",
+  "sunrise": "__sunrise__",
+  "sunset": "__sunset__",
+  "m": "__m__",
+  "pressure": "__pressure__",
+  "humidity": "__humidity__",
+  "Daily": "__Daily__",
+  "Theme": "__Theme__"
 }
