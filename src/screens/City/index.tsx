@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {useWeather} from '@hooks';
 import {CheckBox} from '@rneui/themed';
 
@@ -73,7 +73,7 @@ const City = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.country_list}>
         <View style={styles.all_select}>
           <CheckBox
@@ -94,7 +94,7 @@ const City = () => {
       <View style={styles.plus_btn_wrapper}>
         <PlusButton backgroundColor={'green'} handleCountry={handleCountry} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

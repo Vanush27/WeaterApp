@@ -7,13 +7,12 @@ export function useStyles() {
     styled_button: {
       position: 'absolute',
       zIndex: 1,
-      top: IS_ANDROID ? 40 : 200,
-      // left: IS_ANDROID ? 0 : 300,
+      top: IS_ANDROID ? 40 : 60,
     },
     un_styled_button: {
-      // backgroundColor: colors?.primaryGrey,
-      // alignItems: 'center',
-      // justifyContent: 'center',
+      backgroundColor: colors?.primaryGrey,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   });
 

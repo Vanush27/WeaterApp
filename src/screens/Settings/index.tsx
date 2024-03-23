@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {useStyles} from './styles';
 import {Photo, Text} from '@components';
 import {CELSIUS_TEMP, FAHRENHEIT_TEMP} from '@constants';
@@ -16,7 +16,7 @@ const Settings = () => {
   const languages = ['ru', 'en', 'arm'];
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>{t('Settings')}</Text>
 
       <View style={styles.theme_wrapper}>
@@ -35,7 +35,7 @@ const Settings = () => {
       </View>
 
       {/* <Photo /> */}
-    </View>
+    </SafeAreaView>
   );
 };
 
