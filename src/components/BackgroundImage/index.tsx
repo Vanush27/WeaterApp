@@ -12,19 +12,19 @@ import {useAppSettings} from '@redux/hooks/useAppSettings';
 import {CELSIUS_TEMP, FAHRENHEIT_TEMP} from '@constants';
 import {kelvinToCelsius} from '@utils/unitConversion';
 import {contriList} from '@utils/allCoutry';
+import {useEffect, useState} from 'react';
+import {IImageCountry} from '../../types/ImageCountry';
+import {ICountryListWeather} from '../../types/Weather';
 
 interface IBackgroundImageProps {
-  obj: any;
+  obj: ICountryListWeather;
 }
 const BackgroundImage = ({obj}: IBackgroundImageProps) => {
   const {styles} = useStyles();
   const {t} = useAppTranslation();
   const {dispatchSetTheme, themeStats} = useAppSettings();
 
-  // const isDark = themeStats === 'dark';
-
   const {weatherDetails} = useWeatherDetail(obj);
-
   const {temperature} = useAppSettings();
 
   const result = () => {
@@ -42,6 +42,17 @@ const BackgroundImage = ({obj}: IBackgroundImageProps) => {
     );
   };
 
+  const [images, setImages] = useState<IImageCountry | undefined>();
+
+  const loadImage = async () => {
+    // const cityImage = await getImageCountry(obj.city.name);
+    // setImages(cityImage);
+  };
+
+  useEffect(() => {
+    loadImage();
+  }, [obj?.city.name]);
+
   return (
     <View style={styles.container_image_card}>
       <ImageBackground
@@ -55,7 +66,7 @@ const BackgroundImage = ({obj}: IBackgroundImageProps) => {
         <View style={styles.container}>
           <View style={styles.wrapper_top}>
             <View>
-              <Text style={styles.name}>{obj?.city?.name}</Text>
+              <Text style={styles.name}>{t(`${obj?.city?.name}`)}</Text>
               <Text style={styles.header}>
                 {temperature === CELSIUS_TEMP
                   ? kelvinToCelsius(weatherDetails?.main.temp)

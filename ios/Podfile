@@ -31,7 +31,7 @@ target 'WeatherApp' do
   use_frameworks! :linkage => :static
   $RNFirebaseAsStaticFramework = true
   pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
-
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   use_react_native!(
     :path => config[:reactNativePath],

@@ -39,10 +39,10 @@ const WeatherDetailsList = ({list}: any) => {
 
       <View style={styles.detail_container}>
         <WeatherDetails
-          description={weatherDetails?.main?.humidity}
+          description={weatherDetails?.wind?.speed}
           icon={ImagesAssets.wind}
           name={t('wind')}
-          siUnit={'%'}
+          siUnit={t('m/s')}
         />
 
         <WeatherDetails
@@ -69,7 +69,7 @@ const WeatherDetailsList = ({list}: any) => {
         <WeatherDetails
           description={weatherDetails?.visibility}
           icon={ImagesAssets.visibility}
-          name={'visibility'}
+          name={t('visibility')}
           siUnit={t('m')}
         />
         <WeatherDetails
@@ -81,9 +81,10 @@ const WeatherDetailsList = ({list}: any) => {
 
       <View style={styles.detail_container}>
         <WeatherDetails
-          description={weatherDetails?.weather?.[0].description}
+          description={weatherDetails?.main?.humidity}
           icon={ImagesAssets.humidity}
           name={t('humidity')}
+          siUnit={'%'}
         />
       </View>
 

@@ -5,7 +5,6 @@ const getWeatherViaLocation = async ({city_name}: TCityName) => {
   const {data} = await baseUrl.get(
     `/forecast?q=${city_name}&appid=${WEATHER_API_KEY}`,
   );
-
   return data;
 };
 

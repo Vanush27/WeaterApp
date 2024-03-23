@@ -1,11 +1,9 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {City, Home, Settings} from '@screens';
-
-// import {SettingsScreen, WeatherScreen} from 'components';
 import SettingsIcon from 'react-native-vector-icons/AntDesign';
-// import AddIcon from 'react-native-vector-icons/AntDesign';
 import AddIcon from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 const BottomTab = createBottomTabNavigator();
 
 const settingIcon = (focused: boolean) => {

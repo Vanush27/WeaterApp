@@ -8,7 +8,6 @@ export function useStyles() {
     container: {
       flex: 1,
       justifyContent: 'center',
-      paddingTop: 15,
       backgroundColor: '#d9dde5',
     },
     country_list: {

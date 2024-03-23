@@ -8,9 +8,11 @@ export function useStyles() {
     container_weather: {
       shadowOffset: {width: 1, height: 1},
       shadowColor: '#94f15d',
-      shadowOpacity: 1,
-      elevation: 9,
-      // backgroundColor: '#000',
+      shadowOpacity: 0.7,
+      elevation: 3,
+      backgroundColor: '#ccc',
+
+      shadowRadius: 2,
     },
   });
 

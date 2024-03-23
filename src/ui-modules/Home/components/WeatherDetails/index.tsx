@@ -20,7 +20,9 @@ const WeatherDetails = ({
     <View style={styles.box_wrapper}>
       <View style={styles.wrapper_header}>
         <Image source={icon} style={styles.icon} />
-        <Text style={styles.header_text}>{name}</Text>
+        <Text ellipsizeMode="tail" numberOfLines={1} style={styles.header_text}>
+          {name}
+        </Text>
       </View>
       <View>
         <View style={styles.measure_wrapper}>

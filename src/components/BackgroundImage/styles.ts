@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '@assets/colors';
 import {fonts} from '@assets/fonts';
-import {lineHeight} from '@assets/fonts/size';
+import {lineHeight, size} from '@assets/fonts/size';
 
 import {useAppTheme} from '@redux/hooks/useAppTheme';
 import {useTheme} from '@rneui/themed';
@@ -52,7 +52,7 @@ export function useStyles() {
       // backgroundColor: 'rgba(0,0,0,0.1)',
     },
     flag: {
-      fontSize: 33,
+      fontSize: size.typography_36,
     },
     wrapper_bootom: {
       flex: 0.7,

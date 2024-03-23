@@ -6,8 +6,8 @@ import {ICountryListWeather} from '../../types/Weather';
 import {useStyles} from './styles';
 
 interface ISelecteListProps {
-  index: string;
-  data: ICountryListWeather | any;
+  index: number;
+  data: ICountryListWeather;
   handleSelectItem: any;
 }
 const SelecteList = ({index, data, handleSelectItem}: ISelecteListProps) => {
@@ -19,7 +19,7 @@ const SelecteList = ({index, data, handleSelectItem}: ISelecteListProps) => {
         style={styles.select_item}
         onPress={() => handleSelectItem(data?.city)}>
         <Text h4>{data?.city?.name}</Text>
-        {data?.city?.selected && <RadioButton />}
+        {data?.selected && <RadioButton />}
       </TouchableOpacity>
     </View>
   );

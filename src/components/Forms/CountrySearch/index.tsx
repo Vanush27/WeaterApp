@@ -9,7 +9,6 @@ import {Input} from '@components';
 
 import {TCountryFormShape} from './types';
 import {useStyles} from './styles';
-import {View} from 'react-native';
 
 const CountrySearchForm = () => {
   const {formMethods} = useForm<keyof TCountryFormShape, TCountryFormShape>({
