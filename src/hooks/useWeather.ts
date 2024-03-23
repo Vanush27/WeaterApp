@@ -2,7 +2,11 @@ import {useAppDispatch, useAppSelector} from '@hooks';
 
 import {ICountryListWeather} from '../types/Weather';
 
-import {addCountry, setCurrentCountryItem} from '@redux/slices/weatherSlice';
+import {
+  addCountry,
+  deleteCountry,
+  setCurrentCountryItem,
+} from '@redux/slices/weatherSlice';
 
 export const useWeather = () => {
   const dispatch = useAppDispatch();
@@ -13,6 +17,10 @@ export const useWeather = () => {
   const createNewCountry = async (currentCountryItem: ICountryListWeather) => {
     dispatch(addCountry(currentCountryItem));
     dispatch(setCurrentCountryItem(currentCountryItem));
+  };
+
+  const handleDeleteCountry = (city: string) => {
+    dispatch(deleteCountry(city));
   };
 
   const setCurrentCountry = async (currentCountryItem: ICountryListWeather) => {
@@ -37,16 +45,8 @@ export const useWeather = () => {
   return {
     countryListWeather,
     createNewCountry,
-    // filteredByCurrentDay,
+    handleDeleteCountry,
     currentWeather,
     setCurrentCountry,
-    // weatherDetails,
-
-    // filteredByNextDay1,
-    // filteredByNextDay2,
-    // filteredByNextDay3,
-    // filteredByNextDay4,
-    // filteredByNextDay5,
-    // filteredByNextDay6,
   };
 };

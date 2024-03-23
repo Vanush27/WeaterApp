@@ -46,14 +46,26 @@ const weatherSlice = createSlice({
     },
 
     addCountry: (state, {payload}) => {
-      const newObj = payload;
-      const existingObj = state.countryListWeather.find(
+      const newObj = {...payload, selected: false};
+      const existingObjIndex = state.countryListWeather.findIndex(
         obj => obj?.city?.name === newObj.city.name,
       );
-      if (!existingObj) {
+
+      if (existingObjIndex === -1) {
         state.countryListWeather.push(newObj as never);
+      } else {
+        state.countryListWeather[existingObjIndex] = newObj;
       }
     },
+    deleteCountry: (state, {payload}) => {
+      // const cityNameToDelete = payload;
+
+      const updatedCountryListWeather = state.countryListWeather.filter(
+        obj => obj?.city?.name !== payload,
+      );
+      state.countryListWeather = updatedCountryListWeather;
+    },
+
     setCitiesList: (state, action) => {
       state.citiesList = action.payload;
     },
@@ -71,6 +83,7 @@ const weatherSlice = createSlice({
 export const {
   setLoading,
   addCountry,
+  deleteCountry,
   setCurrentCountryItem,
   setCitiesList,
   setCurrentFilteredCitiList,

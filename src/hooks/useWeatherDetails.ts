@@ -71,6 +71,11 @@ export const useWeatherDetail = ({list}: any) => {
       maxTempMax: maxTempMax5,
       minTempMin: minTempMin5,
     },
+    {
+      daily: filteredByNextDay6[0],
+      maxTempMax: maxTempMax6,
+      minTempMin: minTempMin6,
+    },
   ];
 
   return {

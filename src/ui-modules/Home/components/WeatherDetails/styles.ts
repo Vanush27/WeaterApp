@@ -11,7 +11,7 @@ export function useStyles() {
       backgroundColor: 'rgba(0, 0, 0, 0.2)',
       borderWidth: 2,
       borderColor: colors.detail_border,
-      width: 150,
+      width: 170,
       borderRadius: 16,
       marginTop: 20,
     },
@@ -26,7 +26,8 @@ export function useStyles() {
       color: colors.tan,
       textTransform: 'uppercase',
       fontWeight: '700',
-      fontSize: 20,
+      fontSize: 16,
+      width: '70%',
     },
     icon: {height: 30, width: 30, tintColor: colors.lighterGrey},
 

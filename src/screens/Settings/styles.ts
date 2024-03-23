@@ -13,7 +13,6 @@ export function useStyles() {
       alignItems: 'center',
       paddingLeft: 10,
       paddingRight: 10,
-      // opacity: 0,
     },
     theme_wrapper: {
       width: '100%',

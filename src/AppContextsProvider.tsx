@@ -8,10 +8,11 @@ import {store, persist} from '@redux/store';
 import {PersistGate} from 'redux-persist/integration/react';
 import i18n from '@i18n/i18n.config';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {getInitialSafeAreaMetrics} from '@utils/getInitialSafeAreaMetrics';
 
 export const AppContextsProvider = ({children}: IAppContextsProviderProps) => {
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider initialMetrics={getInitialSafeAreaMetrics}>
       <ThemeProvider>
         <GestureHandlerRootView style={{flex: 1}}>
           <I18nextProvider i18n={i18n}>

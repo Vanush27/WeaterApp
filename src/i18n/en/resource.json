@@ -11,5 +11,7 @@
   "pressure": "pressure",
   "humidity": "humidity",
   "Daily": "Daily",
-  "Theme": "Theme"
+  "Theme": "Theme",
+  "Language": "Language",
+  "visibility": "visibility"
 }

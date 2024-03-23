@@ -6,13 +6,10 @@ import {useAppTranslation} from '@hooks';
 import React from 'react';
 import {LanguageItem, TemperatureItem, ThemeModeSwitcher} from '@ui-modules';
 
-// import THEME from '@assets/icons/theme';
-// import SettingsScreenIcons from '../utils/SettingsScreenIcons';
-
 const Settings = () => {
   const {styles} = useStyles();
 
-  const temperature = 'Temperature';
+  const temperature = 'temperature';
   const language = 'Language';
   const {t} = useAppTranslation();
 
@@ -30,11 +27,11 @@ const Settings = () => {
         <TemperatureItem
           celsiusTemp={CELSIUS_TEMP}
           fahrenheitTemp={FAHRENHEIT_TEMP}
-          name={temperature}
+          name={t(`${temperature}`)}
         />
       </View>
       <View style={styles.item_wrapper}>
-        <LanguageItem name={language} />
+        <LanguageItem name={t(`${language}`)} />
       </View>
 
       {/* <Photo /> */}

@@ -20,6 +20,7 @@ export function useStyles() {
       flex: 0.2,
     },
     all_select: {
+      paddingTop: 30,
       justifyContent: 'flex-end',
       alignItems: 'flex-end',
     },

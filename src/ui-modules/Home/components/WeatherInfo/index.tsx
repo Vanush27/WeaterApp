@@ -5,12 +5,19 @@ import {useAppTranslation, useWeatherDetail} from '@hooks';
 import DailyForecast from '../DailyForecast';
 
 import {useStyles} from './styles';
+import {getWeatherViaLocation} from '@api';
 
 const WeatherInfo = ({list}: any) => {
   const {styles} = useStyles();
   const {t} = useAppTranslation();
 
   const {daysData} = useWeatherDetail(list);
+
+  const getRequestData = async () => {
+    const getSearchCountry = await getWeatherViaLocation({
+      // city_name: city,
+    });
+  };
 
   return (
     <View style={styles.container_weather}>

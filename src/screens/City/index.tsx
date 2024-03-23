@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-
-import {useAppTranslation, useWeather} from '@hooks';
+import {useWeather} from '@hooks';
 import {CheckBox} from '@rneui/themed';
 
-import {useStyles} from './styles';
 import {SelecteList, PlusButton} from '@components';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -13,76 +11,60 @@ import {ICountryListWeather} from '../../types/Weather';
 import {ScrollView} from 'react-native-gesture-handler';
 import DeleteIcon from 'react-native-vector-icons/AntDesign';
 
+import {useStyles} from './styles';
+
 const City = () => {
   const {styles} = useStyles();
-  const {t} = useAppTranslation();
 
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ParamListBase, 'Home'>>();
-  const {countryListWeather, setCurrentCountry} = useWeather();
+  const {countryListWeather, handleDeleteCountry} = useWeather();
 
   const handleCountry = () => {
     navigate('AddCity');
   };
 
-  const [_, setData] = useState(countryListWeather);
+  const [country, setDataListCountry] = useState(countryListWeather);
 
-  const handlePressCountry = async countryItem => {
-    // await setCurrentCountry(countryItem);
-    // navigation?.navigate('Home');
-  };
-
-  const onPressFunction = () => {
-    // todo change size button
-  };
-
-  const allSelected = countryListWeather?.every(item => item.city.selected);
+  const allSelected = country?.every(item => item?.selected);
 
   const handleToggleSelectAll = () => {
-    const newData = countryListWeather?.map(item => ({
-      ...item.city?.selected,
-      selected: !allSelected,
+    const newData = country?.map((item: ICountryListWeather) => ({
+      ...item,
+      selected: !allSelected, // Toggle the selected state based on the current allSelected value
     }));
-    setData(newData);
+    setDataListCountry(newData);
   };
 
-  function addObjectField(obj) {
-    obj.selected = true;
-    return obj;
-  }
-  const handleSelectItem = (city: any) => {
-    const objectWithSelectedField = addObjectField(city);
-
-    const newData = countryListWeather?.map(item => {
-      if (item.selected === objectWithSelectedField) {
-        return {...item, selected: !item.selected};
+  const handleSelectItem = (city: ICountryListWeather) => {
+    const newData = country?.map((item: ICountryListWeather) => {
+      if (item.city.name === city.city.name) {
+        return {...item, selected: !item.selected}; // Toggle the selected field
       }
       return item;
     });
-    setData(newData);
+    setDataListCountry(newData);
   };
 
-  const handleDeleteItem = index => {
-    // const newData = [...data];
-    // newData.splice(index, 1);
-    // setData(newData);
+  const handleDeleteItem = async (item: ICountryListWeather) => {
+    handleDeleteCountry(item?.city.name);
   };
 
   const renderItemContry = () => {
-    return countryListWeather?.map((obj: any, index: string) => {
+    return country?.map((obj: ICountryListWeather, index: number) => {
       return (
         <View key={index}>
           <SelecteList
             data={obj}
-            handleSelectItem={handleSelectItem}
+            handleSelectItem={() => handleSelectItem(obj)}
             index={index}
           />
-          {obj?.city?.selected && (
+          {obj?.selected && (
             <DeleteIcon
               color={'red'}
               name="delete"
               size={24}
-              onPress={handleDeleteItem}
+              onPress={() => handleDeleteItem(obj)}
             />
           )}
         </View>
@@ -99,12 +81,10 @@ const City = () => {
             checkedColor="green"
             checkedIcon="dot-circle-o"
             uncheckedIcon="circle-o"
-            wrapperStyle={
-              {
-                // backgroundColor: 'transparent',
-                // borderColor: 'transparent',
-              }
-            }
+            wrapperStyle={{
+              backgroundColor: 'transparent',
+              borderColor: 'transparent',
+            }}
             onPress={handleToggleSelectAll}
           />
         </View>

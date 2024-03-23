@@ -55,7 +55,7 @@ const BackgroundImage = ({obj}: IBackgroundImageProps) => {
         <View style={styles.container}>
           <View style={styles.wrapper_top}>
             <View>
-              <Text style={styles.name}>{obj?.city?.name}</Text>
+              <Text style={styles.name}>{t(`${obj?.city?.name}`)}</Text>
               <Text style={styles.header}>
                 {temperature === CELSIUS_TEMP
                   ? kelvinToCelsius(weatherDetails?.main.temp)
