@@ -8,3 +8,6 @@ export {ThemeStats} from './Settings/types/ThemeStats';
 
 export {default as TemperatureItem} from './Settings/components/TemperatureItem';
 export {default as LanguageItem} from './Settings/components/LanguageItem';
+
+export {default as CustomPhoto} from './Settings/components/CustomPhoto';
+export {default as UploadImage} from './Settings/components/UploadImage';

@@ -1,10 +1,15 @@
 import {SafeAreaView, View} from 'react-native';
 import {useStyles} from './styles';
-import {Photo, Text} from '@components';
+import {Text} from '@components';
 import {CELSIUS_TEMP, FAHRENHEIT_TEMP} from '@constants';
 import {useAppTranslation} from '@hooks';
 import React from 'react';
-import {LanguageItem, TemperatureItem, ThemeModeSwitcher} from '@ui-modules';
+import {
+  LanguageItem,
+  TemperatureItem,
+  ThemeModeSwitcher,
+  CustomPhoto,
+} from '@ui-modules';
 
 const Settings = () => {
   const {styles} = useStyles();
@@ -34,7 +39,7 @@ const Settings = () => {
         <LanguageItem name={t(`${language}`)} />
       </View>
 
-      {/* <Photo /> */}
+      <CustomPhoto />
     </SafeAreaView>
   );
 };

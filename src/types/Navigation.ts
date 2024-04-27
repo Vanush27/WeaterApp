@@ -28,10 +28,12 @@ import {StackNavigationProp} from '@react-navigation/stack';
 //
 export type TCountry = {
   AddCity: undefined;
+  // UploadImage: undefined;
 };
 
 export type MainNavigationRoutes = {
   AddCity: undefined;
+  UploadImage: undefined;
 };
 
 export type BottomNavigationRoutes = {
@@ -56,9 +58,3 @@ export type TRootScreens = {
   Main: NavigatorScreenParams<MainNavigationRoutes | undefined>;
   Home: BottomNavigationRoutes;
 };
-
-// export const enum MAIN_SCREEN_TABS {
-//   Home = 'HomeScreen',
-//   AddCity = 'AddCity',
-//   Settings = 'Settings',
-// }

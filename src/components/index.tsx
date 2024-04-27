@@ -17,3 +17,5 @@ export * from './Forms/CountrySearch/types';
 export {default as PlusButton} from './PlusButton';
 export {default as BackButton} from './BackButton';
 export {default as SelecteList} from './SelecteList';
+
+export {default as ScreenWrapper} from './Screen';
