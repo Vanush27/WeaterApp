@@ -53,7 +53,7 @@ const Photo = ({
             <Image
               resizeMode="contain"
               source={{uri: item.image}}
-              style={{flex: 1, backgroundColor: 'red', width: 200, height: 300}}
+              style={{flex: 1, width: 200, height: 300}}
             />
           </View>
         )}

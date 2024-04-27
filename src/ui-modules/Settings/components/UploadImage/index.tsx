@@ -64,7 +64,6 @@ const UploadImage = () => {
         // Process the captured image
         const imageUri = response?.uri || response.assets?.[0]?.uri;
         setSelectedImage(imageUri);
-        console.log(imageUri);
       }
     });
   };
