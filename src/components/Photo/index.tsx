@@ -1,70 +1,63 @@
-import React, {useState} from 'react';
-import {Button, Image, View} from 'react-native';
+import React from 'react';
+import {
+  Button,
+  Image,
+  TouchableOpacity,
+  View,
+  Text,
+  FlatList,
+} from 'react-native';
 
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {useStyles} from './styles';
+import {useAppTranslation} from '@hooks';
 
-const Photo = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-
+const Photo = ({
+  openImagePicker,
+  selectedImage,
+  handleCameraLaunch,
+  uploadImage,
+  documents,
+}: any) => {
   const {styles} = useStyles();
-  const openImagePicker = () => {
-    const options = {
-      mediaType: 'photo',
-      includeBase64: false,
-      maxHeight: 2000,
-      maxWidth: 2000,
-    };
 
-    launchImageLibrary(options, response => {
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.error) {
-        console.log('Image picker error: ', response.error);
-      } else {
-        const imageUri = response.uri || response.assets?.[0]?.uri;
-        setSelectedImage(imageUri);
-      }
-    });
-  };
-
-  const handleCameraLaunch = () => {
-    const options = {
-      mediaType: 'photo',
-      includeBase64: false,
-      maxHeight: 2000,
-      maxWidth: 2000,
-    };
-
-    launchCamera(options, response => {
-      if (response.didCancel) {
-        console.log('User cancelled camera');
-      } else if (response.error) {
-        console.log('Camera Error: ', response.error);
-      } else {
-        // Process the captured image
-        const imageUri = response.uri || response.assets?.[0]?.uri;
-        setSelectedImage(imageUri);
-        console.log(imageUri);
-      }
-    });
-  };
-
+  const {t} = useAppTranslation();
   return (
-    <View style={styles.container}>
+    <View>
       {selectedImage && (
         <Image
-          source={{uri: selectedImage}}
-          // style={{flex: 1}}
           resizeMode="contain"
+          source={{uri: selectedImage}}
+          style={{flex: 1}}
         />
       )}
+
       <View style={styles.marginTop}>
         <Button title="Choose from Device" onPress={openImagePicker} />
       </View>
       <View style={styles.marginTop}>
         <Button title="Open Camera" onPress={handleCameraLaunch} />
       </View>
+
+      <TouchableOpacity onPress={uploadImage}>
+        <Text>{t('Upload Image')}</Text>
+      </TouchableOpacity>
+
+      <FlatList
+        data={documents}
+        keyExtractor={item => item.id}
+        renderItem={({item}) => (
+          <View>
+            <Text>{item.image}</Text>
+            <Text>{item.name}</Text>
+
+            <Image
+              resizeMode="contain"
+              source={{uri: item.image}}
+              style={{flex: 1, width: 200, height: 300}}
+            />
+          </View>
+        )}
+      />
     </View>
   );
 };

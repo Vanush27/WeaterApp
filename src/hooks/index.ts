@@ -16,3 +16,5 @@ export {useUnits} from './useUnits';
 
 export {useWeatherDetail} from './useWeatherDetails';
 export {useImageCountry} from './useImageCountry';
+
+export {useStatusBar} from './useStatusBar';

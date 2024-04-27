@@ -12,8 +12,6 @@ import {useAppSettings} from '@redux/hooks/useAppSettings';
 import {CELSIUS_TEMP, FAHRENHEIT_TEMP} from '@constants';
 import {kelvinToCelsius} from '@utils/unitConversion';
 import {contriList} from '@utils/allCoutry';
-import {useEffect, useState} from 'react';
-import {IImageCountry} from '../../types/ImageCountry';
 import {ICountryListWeather} from '../../types/Weather';
 
 interface IBackgroundImageProps {
@@ -41,17 +39,6 @@ const BackgroundImage = ({obj}: IBackgroundImageProps) => {
       </View>
     );
   };
-
-  const [images, setImages] = useState<IImageCountry | undefined>();
-
-  const loadImage = async () => {
-    // const cityImage = await getImageCountry(obj.city.name);
-    // setImages(cityImage);
-  };
-
-  useEffect(() => {
-    loadImage();
-  }, [obj?.city.name]);
 
   return (
     <View style={styles.container_image_card}>

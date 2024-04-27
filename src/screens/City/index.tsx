@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
-import {useWeather} from '@hooks';
 import {CheckBox} from '@rneui/themed';
+import {useWeather} from '@hooks';
 
 import {SelecteList, PlusButton} from '@components';
-import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
 
-import {ICountryListWeather} from '../../types/Weather';
-import {ScrollView} from 'react-native-gesture-handler';
 import DeleteIcon from 'react-native-vector-icons/AntDesign';
+import {ScrollView} from 'react-native-gesture-handler';
+import {ICountryListWeather} from '../../types/Weather';
 
 import {useStyles} from './styles';
 
